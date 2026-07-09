@@ -473,10 +473,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ctaSubmitBtn.classList.add('loading');
       ctaSubmitBtn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> <span>Mengirim ke WhatsApp...</span>';
 
-      // Step 3: Fire Pixel (if exists)
+      // Step 3: Fire Pixel and GA (if exists)
       if (typeof fbq === 'function') {
         fbq('track', 'Lead');
         fbq('trackCustom', 'Lead BP');
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'Lead BP');
       }
 
       // Step 4: Build WhatsApp URL
@@ -608,6 +611,9 @@ document.addEventListener('DOMContentLoaded', () => {
       scrolled70 = true;
       if (typeof fbq === 'function') {
         fbq('trackCustom', '70% BP');
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', '70% BP');
       }
     }
   });
