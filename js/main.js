@@ -475,7 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Step 3: Fire Pixel and GA (if exists)
       if (typeof fbq === 'function') {
-        fbq('track', 'Lead');
         fbq('trackCustom', 'Lead BP');
       }
       if (typeof gtag === 'function') {
