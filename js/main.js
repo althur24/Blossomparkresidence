@@ -486,6 +486,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const waURL = 'https://wa.me/' + adminWA + '?text=' + encodeURIComponent(message);
 
+      // --- Google Sheets Integration (Fire and Forget) ---
+      const gasURL = 'https://script.google.com/macros/s/AKfycbwKYNwlZmR68FanfoMj3Vr4Uiw4mstNp_52zy5SmBY/exec';
+      const payload = {
+        nama: name,
+        wa: ctaForm.querySelector('input[name="whatsapp"]').value.trim(),
+        tipe: unit
+      };
+      
+      fetch(gasURL, {
+        method: 'POST',
+        mode: 'no-cors', // Penting agar tidak diblokir oleh browser saat lintas domain
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(err => console.log('Gagal mengirim ke sheets:', err));
+      // ----------------------------------------------------
+
       // Step 5: Delay then redirect
       setTimeout(function() {
         // Gunakan window.location.href agar 100% lolos popup blocker di Mobile (iOS/Android)
