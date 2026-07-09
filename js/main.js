@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const waURL = 'https://wa.me/' + adminWA + '?text=' + encodeURIComponent(message);
 
       // --- Google Sheets Integration (Fire and Forget) ---
-      const gasURL = 'https://script.google.com/macros/s/AKfycbwKYNwlZmR68FanfoMj3Vr4Uiw4mstNp_52zy5SmBY/exec';
+      const gasURL = 'https://script.google.com/macros/s/AKfycbwwgVX_n9EXXSBAL3IcpRS9Y0VsUJXYO7mNgf3x1cVTLgWXZeet1G4-j_IUXBCGoD-Q/exec';
       const payload = {
         nama: name,
         wa: ctaForm.querySelector('input[name="whatsapp"]').value.trim(),
