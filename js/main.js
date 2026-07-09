@@ -476,6 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Step 3: Fire Pixel (if exists)
       if (typeof fbq === 'function') {
         fbq('track', 'Lead');
+        fbq('trackCustom', 'Lead BP');
       }
 
       // Step 4: Build WhatsApp URL
@@ -591,6 +592,24 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('active');
       }
     });
+  });
+
+  // ==============================
+  // 16. FB PIXEL 70% SCROLL TRACKING
+  // ==============================
+  let scrolled70 = false;
+  window.addEventListener('scroll', function() {
+    if (scrolled70) return;
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPercentage = (scrollPosition / documentHeight) * 100;
+    
+    if (scrollPercentage >= 70) {
+      scrolled70 = true;
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', '70% BP');
+      }
+    }
   });
 
 });
