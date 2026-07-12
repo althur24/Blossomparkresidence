@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const adminWA = '6281181150666';
       const name = ctaForm.querySelector('input[name="name"]').value.trim();
       const unit = ctaForm.querySelector('select[name="unit"]').value;
-      const message = 'Halo Admin Blossom Park Residence, Perkenalkan, saya *' + name + '*. Saya tertarik untuk mendapatkan informasi lengkap mengenai rumah *Tipe ' + unit + '* di Blossom Park Residence.';
+      const message = 'Halo Admin Blossom Park Residence, Perkenalkan, saya ' + name + '. Saya tertarik untuk mendapatkan informasi lengkap mengenai rumah Tipe ' + unit + ' di Blossom Park Residence.';
 
       const waURL = 'https://wa.me/' + adminWA + '?text=' + encodeURIComponent(message);
 
